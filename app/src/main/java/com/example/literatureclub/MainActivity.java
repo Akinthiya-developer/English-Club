@@ -20,20 +20,20 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseUser firebaseUser;
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
-//        if(firebaseUser!=null){
-//           startActivity(new Intent(MainActivity.this,HomePageActivity.class));
-//        }
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
+        if(firebaseUser!=null){
+           startActivity(new Intent(MainActivity.this,HomePageActivity.class));
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        StatusBarUtil.setTransparent(this);
+        StatusBarUtil.setTransparent(this);
 
         //To link the buttons with the xml file...
         member=findViewById(R.id.member);
