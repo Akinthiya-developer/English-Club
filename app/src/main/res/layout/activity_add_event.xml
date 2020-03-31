@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addEventActivity"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/eventback">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="New Event"
+            android:textColor="#7676ff"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/eventName"
+            android:textColorHint="#7676ff"
+            android:hint="EventName"
+            android:textColor="#7676ff"
+            android:fontFamily="casual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/imgName"
+            android:layout_width="160dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="600dp"
+            android:background="@drawable/textframe"
+            android:fontFamily="casual"
+            android:padding="5dp"
+            android:textColor="#7676ff"
+            android:text="IMG-"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.137"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.096" />
+
+        <Button
+            android:id="@+id/addImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="540dp"
+            android:background="@drawable/btn"
+            android:fontFamily="casual"
+            android:text="Add-Image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.953"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.245" />
+
+        <EditText
+            android:id="@+id/infoText"
+            android:layout_width="331dp"
+            android:layout_height="333dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="400dp"
+            android:autoLink="web"
+            android:textColorHint="#7676ff"
+            android:textColor="#7676ff"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:hint="Add the text you want"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.458" />
+
+        <TextView
+            android:id="@+id/docName"
+            android:layout_width="160dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="760dp"
+            android:background="@drawable/textframe"
+            android:fontFamily="casual"
+            android:padding="5dp"
+            android:textColor="#7676ff"
+            android:text="DOC-"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.137"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/attachdoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="750dp"
+            android:padding="5dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/btn"
+            android:fontFamily="casual"
+            android:text="Attach\nDOC"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.953"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/updata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="850dp"
+            android:background="@drawable/btn"
+            android:fontFamily="casual"
+            android:text="Upload Data"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.244" />
+
+        <Button
+            android:id="@+id/makeba"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="950dp"
+            android:background="@drawable/btn"
+            android:fontFamily="casual"
+            android:text="Make Event"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.244" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
