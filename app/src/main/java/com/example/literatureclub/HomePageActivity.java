@@ -51,7 +51,7 @@ public class HomePageActivity extends AppCompatActivity {
         //Basic adminCheck
         //Will be sent to the admin class and there it will continue with the getCurrentUser thing... :)
         FirebaseUser firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
-        if(firebaseUser.getEmail()=="literaryclubpsna@gmail.com"){
+        if(firebaseUser.getEmail().equals("literaryclubpsna@gmail.com")){
             history.setText("M-Data");
             events.setText("E-Update");
             admin = true;
@@ -63,7 +63,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(admin){
-                    startActivity(new Intent(HomePageActivity.this,memDetailsActivity.class));
+                    startActivity(new Intent(HomePageActivity.this,addNotifActivity.class));
                 }else{
                 }
             }

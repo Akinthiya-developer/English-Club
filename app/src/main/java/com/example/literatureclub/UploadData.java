@@ -2,7 +2,11 @@ package com.example.literatureclub;
 
 public class UploadData {
 
-    private String Name,Info,imgURL,docURL;
+    private String Name,Info,imgURL,docURL,Limit;
+
+    public void setLimit(String limit) {
+        Limit = limit;
+    }
 
     public void setName(String name) {
         Name = name;
@@ -19,6 +23,8 @@ public class UploadData {
     public void setDocURL(String docURL) {
         this.docURL = docURL;
     }
+
+    public String getLimit() { return Limit; }
 
     public String getName() {
         return Name;
