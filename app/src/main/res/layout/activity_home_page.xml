@@ -53,4 +53,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.818" />
 
+    <TextView
+        android:id="@+id/infot"
+        android:layout_width="243dp"
+        android:layout_height="278dp"
+        android:text="\n\nKanne knne onna thooki kaana dhooram pogatta aasai ellam kekkata\naasai ellam ekkaata"
+        android:textColor="#fff"
+        android:textSize="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
