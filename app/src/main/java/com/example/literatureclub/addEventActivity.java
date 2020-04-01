@@ -142,26 +142,117 @@ public class addEventActivity extends AppCompatActivity {
         });
 
 
-        makeba.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String info=infoText.getText().toString();
-                String event=eventName.getText().toString();
 
-                uploadData.setName(event);
-                uploadData.setInfo(info);
-
-                //uploading the event name,info and other file links to the RTDB under the event name
-                databaseReference.child(event).setValue(uploadData);
-            }
-        });
-
-        //to Upload everything to the fireBase..
+        //Below is the worst code any one can ever see :D :(
+        /**
+         * First if both img and doc are not selected then upload the event name and info alone
+         * next if any one of them is selected then upload them alone respectively along with the name and info...
+         * Then if both are selected upload them both
+         * The above is achieved by using if and nested if(s)
+         */
         updata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(ImgPathUri!=null){
+                progressDialog.setTitle("Uploading your data");
+                progressDialog.show();
+
+                if(ImgPathUri==null && DocPathUri==null){
+
+                    String info=infoText.getText().toString();
+                    String event=eventName.getText().toString();
+
+                    uploadData.setName(event);
+                    uploadData.setInfo(info);
+                    uploadData.setDocURL(null);
+                    uploadData.setImgURL(null);
+
+                    //uploading the event name,info and other file links to the RTDB under the event name
+                    databaseReference.child(event).setValue(uploadData);
+
+                    progressDialog.dismiss();
+                }
+
+                if(ImgPathUri!=null && DocPathUri==null){
+                    StorageReference str=storageReference.child(StoragePath + System.currentTimeMillis() + "." + getExtension(ImgPathUri));
+
+                    str.putFile(ImgPathUri)
+                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    taskSnapshot.getStorage().getDownloadUrl()
+                                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                @Override
+                                                public void onSuccess(Uri uri) {
+
+                                                    String ImgLink=uri.toString();
+                                                    linkimg=ImgLink;
+
+                                                    String info=infoText.getText().toString();
+                                                    String event=eventName.getText().toString();
+
+                                                    uploadData.setName(event);
+                                                    uploadData.setInfo(info);
+                                                    uploadData.setImgURL(linkimg);
+                                                    uploadData.setDocURL(null);
+
+                                                    //uploading the event name,info and other file links to the RTDB under the event name
+                                                    databaseReference.child(event).setValue(uploadData);
+
+                                                    progressDialog.dismiss();
+                                                }
+                                            });
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(addEventActivity.this, "Img Upload failed", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+
+                if(DocPathUri!=null && ImgPathUri==null){
+                    StorageReference str=storageReference.child(StoragePath + System.currentTimeMillis() + "." + getExtension(DocPathUri));
+
+                    str.putFile(DocPathUri)
+                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                                    taskSnapshot.getStorage().getDownloadUrl()
+                                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                @Override
+                                                public void onSuccess(Uri uri) {
+                                                    String DocLink=uri.toString();
+                                                    linkdoc=DocLink;
+
+                                                    String info=infoText.getText().toString();
+                                                    String event=eventName.getText().toString();
+
+                                                    uploadData.setName(event);
+                                                    uploadData.setInfo(info);
+                                                    uploadData.setDocURL(linkdoc);
+                                                    uploadData.setImgURL(null);
+
+                                                    //uploading the event name,info and other file links to the RTDB under the event name
+                                                    databaseReference.child(event).setValue(uploadData);
+
+                                                    progressDialog.dismiss();
+                                                }
+                                            });
+
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(addEventActivity.this, "Doc upload failed", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+
+                if(ImgPathUri!=null && DocPathUri!=null){
                     StorageReference str=storageReference.child(StoragePath + System.currentTimeMillis() + "." + getExtension(ImgPathUri));
 
                     str.putFile(ImgPathUri)
@@ -178,6 +269,50 @@ public class addEventActivity extends AppCompatActivity {
                                                     linkimg=ImgLink;
                                                     Toast.makeText(addEventActivity.this, linkimg, Toast.LENGTH_SHORT).show();
                                                     uploadData.setImgURL(linkimg);
+
+                                                    if(DocPathUri!=null){
+                                                        StorageReference storageReference1=storageReference.child(StoragePath + System.currentTimeMillis() + "." + getExtension(DocPathUri));
+
+                                                        storageReference1.putFile(DocPathUri)
+                                                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                                    @Override
+                                                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                                                                        taskSnapshot.getStorage().getDownloadUrl()
+                                                                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                                                    @Override
+                                                                                    public void onSuccess(Uri uri) {
+                                                                                        String DocLink=uri.toString();
+                                                                                        linkdoc=DocLink;
+                                                                                        uploadData.setDocURL(linkdoc);
+                                                                                        String info=infoText.getText().toString();
+                                                                                        String event=eventName.getText().toString();
+
+                                                                                        uploadData.setName(event);
+                                                                                        uploadData.setInfo(info);
+
+                                                                                        //uploading the event name,info and other file links to the RTDB under the event name
+                                                                                        databaseReference.child(event).setValue(uploadData);
+
+                                                                                        progressDialog.dismiss();
+                                                                                    }
+                                                                                })
+                                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                                    @Override
+                                                                                    public void onFailure(@NonNull Exception e) {
+                                                                                        Log.e("TAG_FOR_FAILURE LOG", "On Failure: The exception", e);
+                                                                                    }
+                                                                                });
+
+                                                                    }
+                                                                })
+                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                    @Override
+                                                                    public void onFailure(@NonNull Exception e) {
+                                                                        Toast.makeText(addEventActivity.this, "doc fucked", Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                });
+                                                    }
 
                                                 }
                                             });
@@ -197,43 +332,6 @@ public class addEventActivity extends AppCompatActivity {
                                 }
                             });
                 }
-
-                if(DocPathUri!=null){
-                    StorageReference storageReference1=storageReference.child(StoragePath + System.currentTimeMillis() + "." + getExtension(DocPathUri));
-
-                    storageReference1.putFile(DocPathUri)
-                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                                    taskSnapshot.getStorage().getDownloadUrl()
-                                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                                @Override
-                                                public void onSuccess(Uri uri) {
-                                                    String DocLink=uri.toString();
-                                                    linkdoc=DocLink;
-                                                    uploadData.setDocURL(linkdoc);
-                                                }
-                                            })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Log.e("TAG_FOR_FAILURE LOG", "On Failure: The exception", e);
-                                        }
-                                    });
-
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(addEventActivity.this, "doc fucked", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                }
-
-                progressDialog.dismiss();
-
             }
         });
     }
