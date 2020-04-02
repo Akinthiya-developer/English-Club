@@ -46,7 +46,7 @@ public class leftPageDataThing extends AppCompatActivity {
         eventshower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
             }
         });
 
