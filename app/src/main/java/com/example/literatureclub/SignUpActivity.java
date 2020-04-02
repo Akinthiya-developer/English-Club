@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.jaeger.library.StatusBarUtil;
@@ -66,7 +67,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         //On click listerner...
-        /* It may contain
+        /** It may contain
         * 1. text grabber and spinner value grabbers
         * 2. checking whether nothing is null and the code is correct
         * 3. creating account with the submitted mail and password
@@ -94,7 +95,8 @@ public class SignUpActivity extends AppCompatActivity {
                                     Users data=new Users(Name,Section,Phone,Code,Email,Password,Department,Year);
                                     Map<String,Users> users=new HashMap<>();
                                     users.put(Name,data);
-                                    databaseReference.child(Name).setValue(data);
+                                    FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+                                    databaseReference.child(firebaseUser.getEmail()).setValue(data);
                                     startActivity(new Intent(SignUpActivity.this,HomePageActivity.class));
                                     finish();
                                 }

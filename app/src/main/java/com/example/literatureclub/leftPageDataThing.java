@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.jaeger.library.StatusBarUtil;
 
 public class leftPageDataThing extends AppCompatActivity {
 
@@ -25,6 +26,7 @@ public class leftPageDataThing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_left_page_data_thing);
+        StatusBarUtil.setTransparent(this);
 
         eventshower=findViewById(R.id.eventshower);
         notifshower=findViewById(R.id.notifshower);
@@ -46,7 +48,7 @@ public class leftPageDataThing extends AppCompatActivity {
         eventshower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(leftPageDataThing.this,ScrollingActivity.class));
+                startActivity(new Intent(leftPageDataThing.this,EventListActivity.class));
             }
         });
 
