@@ -24,7 +24,6 @@ public class leftPageDataThing extends AppCompatActivity {
 
     Button eventshower,notifshower;
     TextView eventext, notiftext;
-    com.google.android.material.floatingactionbutton.FloatingActionButton adder;
     private boolean admin=false;
 
     @Override
@@ -37,18 +36,6 @@ public class leftPageDataThing extends AppCompatActivity {
         notifshower=findViewById(R.id.notifshower);
         eventext=findViewById(R.id.eventext);
         notiftext=findViewById(R.id.notiftext);
-        adder=findViewById(R.id.adder);
-
-        //Basic adminCheck
-        //Will be sent to the admin class and there it will continue with the getCurrentUser thing... :)
-        FirebaseUser firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
-        if(firebaseUser.getEmail().equals("literaryclubpsna@gmail.com")){
-            admin = true;
-            notiftext.setText("You can check the pre-uploaded posts here");
-            eventext.setText("You can check the pre-uploaded event details here");
-        }else{
-            adder.setVisibility(View.INVISIBLE);
-        }
 
         eventshower.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,25 +51,5 @@ public class leftPageDataThing extends AppCompatActivity {
             }
         });
 
-        adder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PopupMenu popupMenu=new PopupMenu(leftPageDataThing.this,adder);
-                popupMenu.getMenuInflater().inflate(R.menu.menu_scrolling, popupMenu.getMenu());
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        Toast.makeText(leftPageDataThing.this, menuItem.getTitle(), Toast.LENGTH_SHORT).show();
-                        if(menuItem.getTitle().equals("Upload Event")){
-                            startActivity(new Intent(leftPageDataThing.this,addEventActivity.class));
-                        }else startActivity(new Intent(leftPageDataThing.this,addNotifActivity.class));
-                        return true;
-                    }
-                });
-
-                popupMenu.show();
-            }
-        });
     }
 }

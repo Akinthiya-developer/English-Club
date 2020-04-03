@@ -23,7 +23,9 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static android.view.View.GONE;
@@ -40,6 +42,8 @@ public class EventShower extends AppCompatActivity {
     FirebaseUser firebaseUser;
 
     static int VENUMA_VENAMA;
+    SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyy");
+    Date date = new Date();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,13 +95,14 @@ public class EventShower extends AppCompatActivity {
         okie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference memAdder=FirebaseDatabase.getInstance().getReference("UserDetails");
+                DatabaseReference memAdder=FirebaseDatabase.getInstance().getReference("UserDetails/"+(firebaseUser.getEmail().substring(0,firebaseUser.getEmail().length()-10))+"/eventList");
                 databaseReference=FirebaseDatabase.getInstance().getReference("events/"+list.get(pos).getName()+"/members");
                 //saving the email part to the member list so it is accesible as before...
                 databaseReference.child(firebaseUser.getEmail().substring(0,firebaseUser.getEmail().length()-10)).setValue("ullen-AIya");
+                memAdder.child(list.get(pos).getName()).setValue(formatter.format(date));
+
             }
         });
-
 
     }
 }

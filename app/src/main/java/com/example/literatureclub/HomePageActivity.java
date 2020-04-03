@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.jaeger.library.StatusBarUtil;
 
+import static android.view.View.GONE;
+
 public class HomePageActivity extends AppCompatActivity {
 
     private static final String TAG = "LOG_CAT";
@@ -55,13 +57,13 @@ public class HomePageActivity extends AppCompatActivity {
             history.setText("M-Data");
             events.setText("E-Update");
             admin = true;
-            Log.i(TAG, "onCreate: admin ");
-            Toast.makeText(this, "admin peh", Toast.LENGTH_SHORT).show();
+            events.setVisibility(GONE);
         }
 
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(HomePageActivity.this,rightPageDataThing.class));
             }
         });
 
