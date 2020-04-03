@@ -62,18 +62,13 @@ public class HomePageActivity extends AppCompatActivity {
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomePageActivity.this,leftPageDataThing.class));
             }
         });
 
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(admin){
-                    startActivity(new Intent(HomePageActivity.this,addEventActivity.class));
-                }else{
-                    startActivity(new Intent(HomePageActivity.this,addNotifActivity.class));
-                }
+                startActivity(new Intent(HomePageActivity.this,leftPageDataThing.class));
             }
         });
 

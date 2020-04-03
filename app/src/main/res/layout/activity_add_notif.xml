@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="New Event"
+            android:text="New Notif"
             android:textColor="#7676ff"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
