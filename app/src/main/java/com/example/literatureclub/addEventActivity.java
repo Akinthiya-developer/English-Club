@@ -33,6 +33,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.jaeger.library.StatusBarUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,6 +61,8 @@ public class addEventActivity extends AppCompatActivity {
     final static int PICK_DOC_CODE = 2342;
 
     ProgressDialog progressDialog ;
+    SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyy");
+    Date date = new Date();
 
 
     //for the image picker intent..
@@ -168,7 +172,7 @@ public class addEventActivity extends AppCompatActivity {
                     uploadData.setImgURL(null);
 
                     //uploading the event name,info and other file links to the RTDB under the event name
-                    databaseReference.child(event).setValue(uploadData);
+                    databaseReference.child(formatter.format(date)+event).setValue(uploadData);
 
                     progressDialog.dismiss();
                 }
@@ -197,7 +201,7 @@ public class addEventActivity extends AppCompatActivity {
                                                     uploadData.setDocURL(null);
 
                                                     //uploading the event name,info and other file links to the RTDB under the event name
-                                                    databaseReference.child(event).setValue(uploadData);
+                                                    databaseReference.child(formatter.format(date)+event).setValue(uploadData);
 
                                                     progressDialog.dismiss();
                                                 }
@@ -236,7 +240,7 @@ public class addEventActivity extends AppCompatActivity {
                                                     uploadData.setImgURL(null);
 
                                                     //uploading the event name,info and other file links to the RTDB under the event name
-                                                    databaseReference.child(event).setValue(uploadData);
+                                                    databaseReference.child(formatter.format(date)+event).setValue(uploadData);
 
                                                     progressDialog.dismiss();
                                                 }
@@ -292,7 +296,7 @@ public class addEventActivity extends AppCompatActivity {
                                                                                         uploadData.setInfo(info);
 
                                                                                         //uploading the event name,info and other file links to the RTDB under the event name
-                                                                                        databaseReference.child(event).setValue(uploadData);
+                                                                                        databaseReference.child(formatter.format(date)+event).setValue(uploadData);
 
                                                                                         progressDialog.dismiss();
                                                                                     }

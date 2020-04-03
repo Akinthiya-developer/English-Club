@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.widget.ProgressBar;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +19,7 @@ import com.jaeger.library.StatusBarUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventListActivity extends AppCompatActivity {
+public class NotifShower extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
@@ -29,10 +28,11 @@ public class EventListActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_list);
+        setContentView(R.layout.activity_notif_shower);
         StatusBarUtil.setTransparent(this);
 
         recyclerView=findViewById(R.id.machCity);
@@ -40,7 +40,7 @@ public class EventListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("events");
+        databaseReference= FirebaseDatabase.getInstance().getReference("notifs");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -51,7 +51,10 @@ public class EventListActivity extends AppCompatActivity {
                 }
                 adapter=new listAdapter(getApplicationContext() ,list);
                 recyclerView.setAdapter(adapter);
-                EventShower.VENUMA_VENAMA=0;
+                EventShower.VENUMA_VENAMA=1;
+                //after setting the adapter and also as this is a normal post and not an event
+                //I there by remove the register button by making the 'okie' button static and public which is
+                //in the EventShower class and set the visibility to gone here :)
             }
 
             @Override
@@ -59,6 +62,5 @@ public class EventListActivity extends AppCompatActivity {
 
             }
         });
-
     }
 }

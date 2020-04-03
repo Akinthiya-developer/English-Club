@@ -21,19 +21,39 @@
             android:id="@+id/einfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#000"
             android:text="@string/large_text"
             android:padding="25dp"
+            android:textSize="16dp"
+            android:fontFamily="serif-monospace"
             android:layout_below="@+id/eheader"/>
 
         <TextView
             android:textStyle="bold"
             android:textColor="#000"
+            android:fontFamily="sans-serif-smallcaps"
             android:id="@+id/eheader"
+            android:textSize="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/emage"
             android:text="Header"
             android:padding="20dp"/>
+
+        <Button
+            android:id="@+id/okie"
+            android:background="@drawable/button"
+            android:fontFamily="@font/frontout"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:text="Register"
+            android:textColor="@color/colorPrimaryDark"
+            android:textAlignment="center"
+            android:elevation="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/einfo"
+            android:layout_marginBottom="9dp"/>
 
     </RelativeLayout>
 

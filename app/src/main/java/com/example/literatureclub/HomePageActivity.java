@@ -72,7 +72,7 @@ public class HomePageActivity extends AppCompatActivity {
                 if(admin){
                     startActivity(new Intent(HomePageActivity.this,addEventActivity.class));
                 }else{
-                    startActivity(new Intent(HomePageActivity.this,addEventActivity.class));
+                    startActivity(new Intent(HomePageActivity.this,addNotifActivity.class));
                 }
             }
         });

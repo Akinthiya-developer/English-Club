@@ -86,6 +86,10 @@ public class SignUpActivity extends AppCompatActivity {
                 Department=department.getText().toString();
                 Phone=phone.getText().toString();
 
+                //saving the details under the name of email without the domain name i.e. @gmail.com
+                //so it can be easier to choose the user from other classes #lazyness
+                final String demo=Email.substring(0,Email.length()-10);
+
                 if(!Name.isEmpty() && !Section.isEmpty() && !Code.isEmpty() && !Email.isEmpty() &&
                         !Password.isEmpty() && !Year.isEmpty() && !Department.isEmpty() && Code.equals("reputation")){
                     firebaseAuth.createUserWithEmailAndPassword(Email,Password)
@@ -96,7 +100,8 @@ public class SignUpActivity extends AppCompatActivity {
                                     Map<String,Users> users=new HashMap<>();
                                     users.put(Name,data);
                                     FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
-                                    databaseReference.child(firebaseUser.getEmail()).setValue(data);
+                                    databaseReference.child(demo).setValue(data);
+                                    Toast.makeText(SignUpActivity.this, demo, Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(SignUpActivity.this,HomePageActivity.class));
                                     finish();
                                 }

@@ -52,5 +52,12 @@ public class leftPageDataThing extends AppCompatActivity {
             }
         });
 
+        notifshower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(leftPageDataThing.this,NotifShower.class));
+            }
+        });
+
     }
 }
