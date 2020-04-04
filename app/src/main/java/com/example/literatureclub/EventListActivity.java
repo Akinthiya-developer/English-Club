@@ -26,6 +26,7 @@ public class EventListActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
 
     List<UploadData> list=new ArrayList<>();
+    static List<String> name=new ArrayList<>();
 
     DatabaseReference databaseReference;
 
@@ -46,6 +47,7 @@ public class EventListActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    name.add(snapshot.getKey());
                     UploadData uploadData=snapshot.getValue(UploadData.class);
                     list.add(uploadData);
                 }

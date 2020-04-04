@@ -41,6 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
+    FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
         //__init__ firebase things...
         firebaseAuth=FirebaseAuth.getInstance();
         databaseReference=FirebaseDatabase.getInstance().getReference("UserDetails");
-
+        firebaseUser=firebaseAuth.getCurrentUser();
 
         //liniking the xml with java
         name=findViewById(R.id.name);
@@ -96,7 +97,8 @@ public class SignUpActivity extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
-                                    Users data=new Users(Name,Section,Phone,Code,Email,Password,Department,Year);
+                                    Code=firebaseUser.getEmail().substring(0,firebaseUser.getEmail().length()-10);
+                                    Users data=new Users(Name,Section,Code,Phone,Email,Password,Department,Year);
                                     Map<String,Users> users=new HashMap<>();
                                     users.put(Name,data);
                                     FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();

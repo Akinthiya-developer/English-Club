@@ -37,6 +37,7 @@ public class EventShower extends AppCompatActivity {
     static Button okie;
 
     List<UploadData> list;
+    List<String> name;
 
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
@@ -61,6 +62,7 @@ public class EventShower extends AppCompatActivity {
         final int pos=listAdapter.POSITION;
         final String a=Integer.toString(pos);
         list=listAdapter.downdata;
+        name=EventListActivity.name;
 
         emage=findViewById(R.id.emage);
         einfo=findViewById(R.id.einfo);
@@ -99,10 +101,8 @@ public class EventShower extends AppCompatActivity {
                 databaseReference=FirebaseDatabase.getInstance().getReference("events/"+list.get(pos).getName()+"/members");
                 //saving the email part to the member list so it is accesible as before...
                 databaseReference.child(firebaseUser.getEmail().substring(0,firebaseUser.getEmail().length()-10)).setValue("ullen-AIya");
-                memAdder.child(list.get(pos).getName()).setValue(formatter.format(date));
-
+                memAdder.child(name.get(pos)).setValue(formatter.format(date));
             }
         });
-
     }
 }

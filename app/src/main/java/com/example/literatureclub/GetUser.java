@@ -1,26 +1,46 @@
 package com.example.literatureclub;
 
-public class Users {
-
-    public String name;
+public class GetUser {    public String name;
     public String department;
     public String section;
     public String year;
     public String code;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String phone;
     public String email;
     public String password;
-
-    public Users(String name,String section, String code, String phone, String email, String password,String department, String year) {
-        this.department = department;
-        this.name=name;
-        this.section = section;
-        this.year = year;
-        this.code = code;
-        this.email = email;
-        this.password = password;
-        this.phone = phone;
-    }
 
     public String getName() {
         return name;
