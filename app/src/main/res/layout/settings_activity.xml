@@ -10,6 +10,11 @@
 
         <TextView
             android:id="@+id/preach"
+            android:textAlignment="center"
+            android:textColor="#e75044"
+            android:text="\nType only the values,\n You want to make\nChange to !"
+            android:textSize="30dp"
+            android:fontFamily="@font/font"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_alignParentStart="true"
@@ -21,12 +26,17 @@
             android:id="@+id/ed1"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:hint="Name"
             android:layout_below="@+id/preach"
             android:layout_marginTop="50dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/a"
                 android:fontFamily="casual"
+                android:textColor="#fff"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -35,18 +45,26 @@
             android:id="@+id/ed2"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:hint="Department"
             android:layout_below="@+id/ed1"
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:textColor="#fff"
                 android:layout_width="match_parent"
                 android:fontFamily="casual"
+                android:id="@+id/b"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ed3"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:hint="Section"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_below="@+id/ed2"
@@ -55,6 +73,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:fontFamily="casual"
+                android:textColor="#fff"
+                android:id="@+id/c"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -63,18 +83,26 @@
             android:id="@+id/ed4"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:hint="Year"
             android:layout_below="@+id/ed3"
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:fontFamily="casual"
+                android:id="@+id/d"
+                android:textColor="#fff"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ed5"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:hint="Phone Number"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_below="@+id/ed4"
@@ -83,79 +111,109 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:fontFamily="casual"
+                android:id="@+id/e"
+                android:textColor="#fff"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ed6"
+        <Button
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
             android:layout_below="@+id/ed5"
-            android:layout_marginTop="20dp">
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="46dp"
+            android:layout_marginEnd="144dp"
+            android:background="#e75043"
+            android:fontFamily=" "
+            android:text="Update"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:fontFamily="casual"
-                android:layout_height="wrap_content" />
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/ed6"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_below="@+id/ed5"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:hint="Name"-->
+<!--            android:layout_marginTop="20dp">-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:fontFamily="casual"-->
+<!--                android:layout_height="wrap_content" />-->
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ed7"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/ed6"
-            android:layout_marginTop="20dp">
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:fontFamily="casual"
-                android:layout_height="wrap_content" />
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/ed7"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:hint="Name"-->
+<!--            android:layout_below="@+id/ed6"-->
+<!--            android:layout_marginTop="20dp">-->
+<!--         -->
+<!--            -->
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:fontFamily="casual"-->
+<!--                android:layout_height="wrap_content" />-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ed8"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/ed7"
-            android:layout_marginTop="20dp">
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/ed8"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:hint="Name"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_below="@+id/ed7"-->
+<!--            android:layout_marginTop="20dp">-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:fontFamily="casual"
-                android:layout_height="wrap_content" />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:fontFamily="casual"-->
+<!--                android:layout_height="wrap_content" />-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ed9"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/ed7"
-            android:layout_marginTop="20dp">
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/ed9"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:hint="Name"-->
+<!--            android:layout_below="@+id/ed7"-->
+<!--            android:layout_marginTop="20dp">-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:fontFamily="casual"
-                android:layout_height="wrap_content" />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:fontFamily="casual"-->
+<!--                android:layout_height="wrap_content" />-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ed10"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/ed9"
-            android:layout_marginTop="20dp">
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/ed10"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:hint="Name"-->
+<!--            android:layout_below="@+id/ed9"-->
+<!--            android:layout_marginTop="20dp">-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:fontFamily="casual"
-                android:layout_height="wrap_content" />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:fontFamily="casual"-->
+<!--                android:layout_height="wrap_content" />-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
     </RelativeLayout>
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,6 +21,7 @@ import com.jaeger.library.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class memDetailsActivity extends AppCompatActivity {
 
@@ -30,6 +32,8 @@ public class memDetailsActivity extends AppCompatActivity {
 
     TextView nameBoard;
     Button My_history,Change_details,outie;
+
+    static GetUser getUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,13 @@ public class memDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(memDetailsActivity.this,ShowHistorymem.class));
+            }
+        });
+
+        Change_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(memDetailsActivity.this,SettingsActivity.class));
             }
         });
 
