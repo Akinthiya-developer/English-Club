@@ -42,6 +42,8 @@ public class EventShower extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
 
+    boolean adminn=rightPageDataThing.adminn;
+
     static int VENUMA_VENAMA;
     SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyy");
     Date date = new Date();
@@ -92,7 +94,7 @@ public class EventShower extends AppCompatActivity {
         einfo.setText(list.get(pos).getInfo());
         eheader.setText(list.get(pos).getName());
 
-        if(VENUMA_VENAMA==1)okie.setVisibility(GONE);
+        if(VENUMA_VENAMA==1 || adminn)okie.setVisibility(GONE);
 
         okie.setOnClickListener(new View.OnClickListener() {
             @Override

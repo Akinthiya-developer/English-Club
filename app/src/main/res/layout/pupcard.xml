@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8sp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="14sp"
+        android:layout_marginEnd="14sp"
+        app:cardCornerRadius="11dp">
+
+        <Button
+            android:id="@+id/namer"
+            android:text="EventList"
+            android:fontFamily=""
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#808080"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
