@@ -8,10 +8,86 @@
     tools:context=".PersonaActivity"
     tools:showIn="@layout/activity_persona">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:text="Details"
+            android:fontFamily="casual"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_below="@id/t1"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textAlignment="viewStart"
+            android:tooltipText="Department"/>
+
+        <TextView
+            android:id="@+id/t3"
+            android:layout_below="@+id/t2"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textAlignment="viewStart"
+            android:tooltipText="Section"/>
+
+        <TextView
+            android:id="@+id/t4"
+            android:layout_below="@id/t3"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textAlignment="viewStart"
+            android:tooltipText="Year"/>
+
+        <TextView
+            android:id="@+id/t5"
+            android:layout_below="@+id/t4"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textAlignment="viewStart"
+            android:tooltipText="Phone"/>
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/t5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/large_text"/>
+
+    </RelativeLayout>
 
 </androidx.core.widget.NestedScrollView>
