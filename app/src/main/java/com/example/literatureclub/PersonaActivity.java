@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.jaeger.library.StatusBarUtil;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,8 @@ public class PersonaActivity extends AppCompatActivity {
 
     TextView t1,t2,t3,t4,t5;
     String Department, Section, Year, Phone;
+
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,8 @@ public class PersonaActivity extends AppCompatActivity {
         t3.setText(Section);
         t4.setText(Year);
         t5.setText(Phone);
+
+        databaseReference= FirebaseDatabase.getInstance().getReference("UserDetails/"+getUser.getCode()+"/eventList");
 
     }
 }

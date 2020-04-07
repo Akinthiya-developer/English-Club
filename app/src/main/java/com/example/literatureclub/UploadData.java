@@ -2,7 +2,15 @@ package com.example.literatureclub;
 
 public class UploadData {
 
-    private String Name,Info,imgURL,docURL,Limit;
+    private String Name,Info,imgURL,docURL,Limit,Actual;
+
+    public void setActual(String actual) {
+        Actual = actual;
+    }
+
+    public String getActual() {
+        return Actual;
+    }
 
     public void setLimit(String limit) {
         Limit = limit;

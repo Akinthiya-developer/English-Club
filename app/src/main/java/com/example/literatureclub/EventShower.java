@@ -100,7 +100,7 @@ public class EventShower extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DatabaseReference memAdder=FirebaseDatabase.getInstance().getReference("UserDetails/"+(firebaseUser.getEmail().substring(0,firebaseUser.getEmail().length()-10))+"/eventList");
-                databaseReference=FirebaseDatabase.getInstance().getReference("events/"+list.get(pos).getName()+"/members");
+                databaseReference=FirebaseDatabase.getInstance().getReference("events/"+list.get(pos).getActual()+"/members");
                 //saving the email part to the member list so it is accesible as before...
                 databaseReference.child(firebaseUser.getEmail().substring(0,firebaseUser.getEmail().length()-10)).setValue("ullen-AIya");
                 memAdder.child(name.get(pos)).setValue(formatter.format(date));

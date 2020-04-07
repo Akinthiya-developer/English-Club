@@ -44,7 +44,7 @@ public class listAdapter extends RecyclerView.Adapter<listAdapter.ViewHolder> {
                 Snackbar.make(view, "Giving the details", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Intent intent = new Intent(context,EventShower.class);
-                POSITION=position;
+                POSITION=downdata.size()-position-1;
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

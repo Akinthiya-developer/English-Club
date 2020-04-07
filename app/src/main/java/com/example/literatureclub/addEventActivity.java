@@ -167,6 +167,7 @@ public class addEventActivity extends AppCompatActivity {
                     String event=eventName.getText().toString();
 
                     uploadData.setName(event);
+                    uploadData.setActual(formatter.format(date)+event);
                     uploadData.setInfo(info);
                     uploadData.setDocURL(null);
                     uploadData.setImgURL(null);
@@ -199,6 +200,7 @@ public class addEventActivity extends AppCompatActivity {
                                                     uploadData.setInfo(info);
                                                     uploadData.setImgURL(linkimg);
                                                     uploadData.setDocURL(null);
+                                                    uploadData.setActual(formatter.format(date)+event);
 
                                                     //uploading the event name,info and other file links to the RTDB under the event name
                                                     databaseReference.child(formatter.format(date)+event).setValue(uploadData);
@@ -235,6 +237,7 @@ public class addEventActivity extends AppCompatActivity {
                                                     String event=eventName.getText().toString();
 
                                                     uploadData.setName(event);
+                                                    uploadData.setActual(formatter.format(date)+event);
                                                     uploadData.setInfo(info);
                                                     uploadData.setDocURL(linkdoc);
                                                     uploadData.setImgURL(null);
@@ -294,6 +297,7 @@ public class addEventActivity extends AppCompatActivity {
 
                                                                                         uploadData.setName(event);
                                                                                         uploadData.setInfo(info);
+                                                                                        uploadData.setActual(formatter.format(date)+event);
 
                                                                                         //uploading the event name,info and other file links to the RTDB under the event name
                                                                                         databaseReference.child(formatter.format(date)+event).setValue(uploadData);
