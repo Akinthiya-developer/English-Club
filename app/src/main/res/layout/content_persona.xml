@@ -20,9 +20,9 @@
             android:layout_height="40dp"
             android:layout_marginTop="50dp"
             android:textColor="#000"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:text="Details"
-            android:fontFamily="casual"
+            android:fontFamily="@font/roundie"
             android:textAlignment="center"/>
 
         <TextView
@@ -82,11 +82,29 @@
             android:tooltipText="Phone"/>
 
         <TextView
-            android:layout_marginTop="30dp"
+            android:id="@+id/t6"
             android:layout_below="@+id/t5"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/large_text"/>
+            android:layout_marginTop="30dp"
+            android:textColor="#000"
+            android:textSize="30dp"
+            android:fontFamily="@font/roundie"
+            android:text="Total registrations by this member here below"
+            android:textAlignment="center"
+            android:tooltipText="Phone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:padding="3dp"
+            android:id="@+id/eventie"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/t6"
+            android:orientation="horizontal"
+            app:reverseLayout="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 
